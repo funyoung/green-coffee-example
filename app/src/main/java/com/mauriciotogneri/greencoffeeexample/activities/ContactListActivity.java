@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,16 +41,16 @@ public class ContactListActivity extends AppCompatActivity
         ContactDatabase contactDatabase = new ContactDatabase();
         List<Contact> contacts = contactDatabase.contacts(username);
 
-        ListView listView = findViewById(R.id.contacts_list);
+        RecyclerView listView = findViewById(R.id.contacts_list);
 
         if (!contacts.isEmpty())
         {
-            listView.setAdapter(new ContactAdapter(this, contacts));
-            listView.setOnItemClickListener((parent, view, position, id) ->
-                                            {
-                                                Contact contact = (Contact) parent.getItemAtPosition(position);
-                                                onContactSelected(contact);
-                                            });
+            ContactAdapter adapter = new ContactAdapter(this, contacts);
+            adapter.setOnItemClickListener(v -> {
+                Contact contact = (Contact) v.getTag();
+                onContactSelected(contact);
+            });
+            listView.setAdapter(adapter);
         }
         else
         {
