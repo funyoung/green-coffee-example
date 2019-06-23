@@ -7,6 +7,7 @@ import com.mauriciotogneri.greencoffee.GreenCoffeeTest;
 import com.mauriciotogneri.greencoffee.Scenario;
 import com.mauriciotogneri.greencoffee.ScenarioConfig;
 import com.mauriciotogneri.greencoffeeexample.activities.LoginActivity;
+import com.mauriciotogneri.greencoffeeexample.test.TestSuite;
 import com.mauriciotogneri.greencoffeeexample.test.steps.ContactListSteps;
 import com.mauriciotogneri.greencoffeeexample.test.steps.LoginSteps;
 import com.mauriciotogneri.greencoffeeexample.test.steps.ScreenshotSteps;
@@ -19,9 +20,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.io.IOException;
 import java.util.Locale;
-
-import static com.mauriciotogneri.greencoffeeexample.test.TestSuite.ENGLISH;
-import static com.mauriciotogneri.greencoffeeexample.test.TestSuite.SPANISH;
 
 @RunWith(Parameterized.class)
 public class LoginFeatureTest extends GreenCoffeeTest
@@ -40,7 +38,7 @@ public class LoginFeatureTest extends GreenCoffeeTest
         return new GreenCoffeeConfig()
                 .withFeatureFromAssets("assets/login.feature")
                 .takeScreenshotOnFail()
-                .scenarios(ENGLISH, SPANISH);
+                .scenarios(TestSuite.INSTANCE.getENGLISH(), TestSuite.INSTANCE.getSPANISH());
     }
 
     @Test
