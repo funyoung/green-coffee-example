@@ -25,18 +25,18 @@ public class LoginSteps extends GreenCoffeeSteps
         switch (user)
         {
             case "USER_1":
-                onViewWithId(R.id.login_input_username).type(UserDatabase.USER_1.username());
-                onViewWithId(R.id.login_input_password).type(UserDatabase.USER_1.password());
+                onViewWithId(R.id.login_input_username).type(UserDatabase.Companion.getUSER_1().username());
+                onViewWithId(R.id.login_input_password).type(UserDatabase.Companion.getUSER_1().password());
                 break;
 
             case "USER_2":
-                onViewWithId(R.id.login_input_username).type(UserDatabase.USER_2.username());
-                onViewWithId(R.id.login_input_password).type(UserDatabase.USER_2.password());
+                onViewWithId(R.id.login_input_username).type(UserDatabase.Companion.getUSER_2().username());
+                onViewWithId(R.id.login_input_password).type(UserDatabase.Companion.getUSER_2().password());
                 break;
 
             case "USER_3":
-                onViewWithId(R.id.login_input_username).type(UserDatabase.USER_3.username());
-                onViewWithId(R.id.login_input_password).type(UserDatabase.USER_3.password());
+                onViewWithId(R.id.login_input_username).type(UserDatabase.Companion.getUSER_3().username());
+                onViewWithId(R.id.login_input_password).type(UserDatabase.Companion.getUSER_3().password());
                 break;
 
             default:
@@ -55,13 +55,13 @@ public class LoginSteps extends GreenCoffeeSteps
     @When("^I introduce a valid username$")
     public void iIntroduceAValidUsername()
     {
-        onViewWithId(R.id.login_input_username).type(UserDatabase.USER_1.username());
+        onViewWithId(R.id.login_input_username).type(UserDatabase.Companion.getUSER_1().username());
     }
 
     @When("^I introduce a valid password$")
     public void iIntroduceAValidPassword()
     {
-        onViewWithId(R.id.login_input_password).type(UserDatabase.USER_1.password());
+        onViewWithId(R.id.login_input_password).type(UserDatabase.Companion.getUSER_1().password());
     }
 
     @When("^I introduce an invalid username$")
