@@ -24,6 +24,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Contact contact) {
+        itemView.setTag(contact);
         firstName.setText(contact.name());
         age.setText(contact.age());
         weight.setText(contact.weight());
